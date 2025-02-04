@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-DO </title>
+</head>
+<body>
+    <div id="to_doContianer">
+        <h2>To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Enter A Task">
+        <button class="add_btn" onclick="addTask()">Add Task</button>
+        <ul id="to-doList" class="to-doList"></ul>
+    </div>
+    <script>
+        //add function
+        function addTask()
+        {
+            const input=document.getElementById("taskInput");
+            const tasktext=input.value.trim();
+            if(tasktext !== "")
+            {
+                const ul=document.getElementById(to-doList);
+                const li=document.createElement("li");
+                // Create task text element 
+                const span=document.createElement("span");
+                span.textContent=tasktext;
+                //creat edit button
+                const btn=document.createElement("button");
+                btn.textContent=Edite;
+                btn.classList.add("Edit-btn");
+                btn.onclick=()=>editTask(span);
+
+                //creat delet button
+                const removeButton=document.createElement("button");
+                removeButton.textContent = "Delete";
+            removeButton.classList.add("remove-btn");
+            removeButton.onclick = () => removeTask(li);
+
+            // Append buttons and text to the list item
+            li.appendChild(span);
+            li.appendChild(editButton);
+            li.appendChild(removeButton);
+            
+           ul.appendChild(li);
+
+           input.value="";
+            }
+            else{
+                alert("Pleas Enter Task");
+            }
+            function editTask(span) {
+        const newTaskText = prompt("Edit your task:", span.textContent);
+        if (newTaskText !== null && newTaskText.trim() !== "") {
+            span.textContent = newTaskText.trim();
+        }
+    }
+    // Remove task function
+    function removeTask(li) {
+        li.remove();
+    }
+           
+                
+
+            
+        }
+    </script>
+</body>
+</html>
